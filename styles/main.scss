@@ -1,0 +1,233 @@
+// шрифты
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('../fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+        url('../fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// переменные
+$ff-main: 'OpenSans', sans-serif;
+$c-bg: #2370B7;
+$c-bg-transparent: rgba(255, 255, 255, 0.07);
+$c-white: #fff;
+$c-line: rgba(255, 255, 255, 0.3);
+$c-border: rgba(255, 255, 255, 0.11);
+$transitions: 0.2s linear;
+
+// сброс стилей
+html {
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -o-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    -webkit-locale: auto;
+    white-space: normal;
+    font-family: $ff-main;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.63em;
+}
+
+div,
+a,
+span,
+p {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-size: inherit;
+    background: transparent;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+// общие стили
+.m-section {
+    position: relative;
+    display: block;
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+               object-fit: cover;
+        }
+    }
+
+    &__container {
+        position: relative;
+        z-index: 3;
+    }
+}
+
+.m-container {
+    width: 100%;
+    max-width: 1820px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    @media (max-width: 767px) {
+        padding: 0 20px;
+    }
+}
+
+// стили страницы
+.plug {
+    background-color: $c-bg;
+    color: $c-white;
+
+    &__content {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+                align-items: center;
+        -webkit-box-pack: end;
+                justify-content: flex-end;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+                flex-direction: column;
+        min-height: 100dvh;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    &__logo {
+        width: 420px;
+        margin-top: auto;
+
+        @media (max-width: 767px) {
+            width: 50vw;
+            margin-top: 0;
+        }
+    }
+
+    &__tags {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+                justify-content: center;
+        gap: 30px;
+        margin-top: 34px;
+        margin-bottom: auto;
+        line-height: 1.63em;
+
+        @media (max-width: 767px) {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                    flex-direction: column;
+            -webkit-box-align: start;
+                    align-items: flex-start;
+            margin-top: 20px;
+            width: 50vw;
+            font-size: 12px;
+            gap: 8px;
+        }
+    }
+
+    &__tag {
+        padding: 5px 20px 4px;
+        background-color: $c-bg-transparent;
+        border: 1px solid $c-border;
+        letter-spacing: 0.08em;
+
+        @media (max-width: 767px) {
+            padding: 6px 18px 4px;
+        }
+    }
+
+    &__contacts {
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.63em;
+
+        @media (max-width: 767px) {
+            font-size: 12px;
+        }
+    }
+
+    &__link {
+        opacity: 1;
+        -webkit-transition: opacity $transitions;
+        -o-transition: opacity $transitions;
+        transition: opacity $transitions;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__line {
+        width: 100%;
+        height: 1px;
+        margin: 24px 0;
+        border: 0;
+        background-color: $c-line;
+    }
+
+    &__text {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1em;
+        text-align: center;
+    }
+}
